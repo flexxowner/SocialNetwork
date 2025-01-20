@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Network</title>
-  <link rel="stylesheet" href="style.css"> <!-- Добавьте этот путь, если есть стили -->
+  <link rel="stylesheet" href="src/common-style.css"> <!-- Добавьте этот путь, если есть стили -->
+  <link rel="stylesheet" href="src/login-style.css">
 </head>
 <body>
-<header>
+<header id="header">
   <h1>Social Network</h1>
   <nav>
     <a href="/" data-link>Home</a>
@@ -16,7 +17,8 @@
   </nav>
 </header>
 <div id="app"></div>
-<script src="router.js" type="module"></script> <!-- Убедитесь, что путь корректный -->
-<script src="app.js" type="module"></script>
+<div id="login-container" class="login" style="display: none;"></div>
+<script src="./src/router.js" type="module"></script> <!-- Убедитесь, что путь корректный -->
+<script src="./src/app.js" type="module"></script>
 </body>
 </html>

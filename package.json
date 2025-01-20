@@ -1,10 +1,13 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "SocialNetwork",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -c-1 -p 8080"
   },
-  "private": true
+  "private": false,
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.0"
+  }
 }
