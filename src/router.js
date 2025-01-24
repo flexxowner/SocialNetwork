@@ -21,20 +21,14 @@ export class Router {
     }
 
     render() {
-        if (!this.isAuthenticated()) {
-            this.renderLogin();
-            return;
-        }
-
         const currentPath = window.location.pathname;
+
+        console.log(currentPath);
         const route = this.getRoute(currentPath);
+        console.log(route);
         this.renderContent(route);
     }
 
-// Проверка авторизации
-    isAuthenticated() {
-        return !!localStorage.getItem("authToken");
-    }
 
 // Получение маршрута
     getRoute(path) {
@@ -45,16 +39,6 @@ export class Router {
     renderContent(route) {
         document.getElementById('header').style.display = 'block';
         document.getElementById('app').innerHTML = route();
-    }
-
-// Рендеринг страницы логина
-    renderLogin() {
-        const loginContainer = document.getElementById('login-container');
-        const header = document.getElementById('header');
-
-        header.style.display = 'none';
-        loginContainer.innerHTML = this.routes['/login']();
-        loginContainer.style.display = 'flex';
     }
 
 }

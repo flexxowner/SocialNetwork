@@ -63,7 +63,7 @@
     background: #131066;
 }
 
-.input-group div img {
+.input-group div img, .input-group i {
     width: 20px;
     height: 20px;
     margin-top: 1px;
@@ -78,22 +78,6 @@
     background-color: #385273;
     color: white;
     font-size: 16px;
-}
-
-.login-button, .register-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 310px;
-    height: 40px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    background-color: #0606c5;
-    color: white;
 }
 
 .text{
@@ -115,3 +99,26 @@
     align-items: center;
     justify-content: center;
 }
+
+.register {
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.register-form{
+    margin-top: 40px;
+}
+
+.register-form input {
+    background-color: #385273;
+    border: none;
+    color: white
+}
+
+.auth {
+    width: 300px;
+}
+

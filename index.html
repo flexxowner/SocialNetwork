@@ -2,23 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Network</title>
-  <link rel="stylesheet" href="src/common-style.css"> <!-- Добавьте этот путь, если есть стили -->
-  <link rel="stylesheet" href="src/login-style.css">
+  <link rel="stylesheet" href="src/common-style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="src/home.css" rel="stylesheet">
 </head>
 <body>
 <header id="header">
-  <h1>Social Network</h1>
-  <nav>
-    <a href="/" data-link>Home</a>
-    <a href="/feed" data-link>Feed</a>
-    <a href="/profile" data-link>Profile</a>
-  </nav>
+  <h1> Social Network</h1>
 </header>
-<div id="app"></div>
-<div id="login-container" class="login" style="display: none;"></div>
-<script src="./src/router.js" type="module"></script> <!-- Убедитесь, что путь корректный -->
+<div class="container-fluid application-area">
+  <div class="row">
+
+    <!-- side panel -->
+    <div class="col-3 p-4">
+      <div class="row navigation-container">
+        <div class="row d-flex profile-bg" id="profile-bg">
+
+        </div>
+        <div class="row" id="profile-info">
+          
+        </div>
+        <div class="row" id="navigation">
+          <nav class="flex-column row">
+            <a href="/" data-link>Home</a>
+            <a href="/feed" data-link>Feed</a>
+            <a href="/profile" data-link>Profile</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="col-6 vh-100 p-3 d-flex text-center app" id="app">
+
+    </div>
+
+    <!-- right panel -->
+    <div class="col-3 p-4">
+       <div class="row p-4 follows">
+          <div class="row">
+            <h1 class="title">Who to follow</h1>
+          </div>
+         <div class="row" id="follow">
+
+         </div>
+       </div>
+      <div class="row p-4 news">
+           <div class="row">
+             <h1 class="title">Today new's</h1>
+           </div>
+        <div class="row" id="news">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./src/router.js" type="module"></script>
 <script src="./src/app.js" type="module"></script>
+<script type="module" src="src/right-menu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
