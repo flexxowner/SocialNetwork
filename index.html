@@ -3,53 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <title>Social Network</title>
-  <link rel="stylesheet" href="src/common-style.css">
+  <link rel="stylesheet" href="src/styles/common.css">
+  <link href="src/styles/home.css" rel="stylesheet">
+  <link href="src/styles/side-menu.css" rel="stylesheet">
+  <link href="src/styles/right-menu.css" rel="stylesheet">
+  <link href="src/styles/header.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="src/home.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body>
 <header id="header">
-  <h1> Social Network</h1>
+  <div class="container-fluid header-container">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-start">
+        <button class="btn btn-primary"><i class="fa-solid fa-bullhorn"></i></button>
+        <div class="input-group search-group">
+          <button class="btn btn-outline-secondary" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" class="form-control" placeholder="Search..." aria-label="Example text with button addon" aria-describedby="search-btn">
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <div class="dropdown header-dropdown">
+          <button class="btn dropdown-toggle" type="button" id="demo" data-bs-toggle="dropdown" aria-expanded="false">Demo</button>
+        </div>
+        <div class="dropdown header-dropdown">
+          <button class="btn dropdown-toggle" type="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</button>
+        </div>
+        <div class="dropdown header-dropdown">
+          <button class="btn dropdown-toggle" type="button" id="account" data-bs-toggle="dropdown" aria-expanded="false">Account</button>
+        </div>
+        <button class="btn" type="button" id="my-network">My Network</button>
+        <button class="btn btn-secondary toolbar-item"><i class="fa-solid fa-message"></i></button>
+        <button class="btn btn-secondary toolbar-item"><i class="fa-solid fa-gear"></i></button>
+        <button class="btn btn-secondary toolbar-item"><i class="fa-solid fa-bell"></i></button>
+        <a href="/profile" class="profile" data-link>
+          <img src="assets/avatar-plug.jpg">
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
 <div class="container-fluid application-area">
   <div class="row">
 
     <!-- side panel -->
-    <div class="col-3 p-4">
-      <div class="row navigation-container">
-        <div class="row d-flex profile-bg" id="profile-bg">
-
+    <div class="col-3 side-panel">
+      <div class="navigation-container">
+        <div class="profile-images" id="profile-info">
+          <div class="profile-bg">
+            <img src="assets/profile-bg-plug.jpg" id="profile-bg">
+          </div>
+          <div class="profile-img">
+            <img src="assets/avatar-plug.jpg" id="profile-img">
+          </div>
         </div>
-        <div class="row" id="profile-info">
-          
+        <div class="profile-info">
+          <h2 id="name" class="text-main">Sam Lanson</h2>
+          <p id="position">Web Developer at Webestica</p>
+          <p id="status" class="status">I'd love to change the world, but they won't give me the source code.</p>
         </div>
-        <div class="row" id="navigation">
-          <nav class="flex-column row">
-            <a href="/" data-link>Home</a>
-            <a href="/feed" data-link>Feed</a>
-            <a href="/profile" data-link>Profile</a>
+        <div class="profile-statistics">
+          <div>
+            <h1 class="statistics-count" id="posts-count">256</h1>
+            <p class="statistics-name">Posts</p>
+          </div>
+          <div class="divider-vertical"></div>
+          <div>
+            <h1 class="statistics-count" id="followers-count">2.5K</h1>
+            <p class="statistics-name">Followers</p>
+          </div>
+          <div class="divider-vertical"></div>
+          <div>
+            <h1 class="statistics-count" id="following-count">365</h1>
+            <p class="statistics-name">Following</p>
+          </div>
+        </div>
+        <div class="divider-horizontal"></div>
+        <div id="navigation" class="navigation">
+          <nav class="row">
+            <div>
+              <i class="fa-solid fa-house"></i>
+              <a href="/" data-link>Home</a>
+            </div>
+            <div>
+              <i class="fa-solid fa-user-group"></i>
+              <a href="/connections" data-link>Connections</a>
+            </div>
+            <div>
+              <i class="fa-solid fa-earth-americas"></i>
+              <a href="/news" data-link>Latest News</a>
+            </div>
+            <div>
+              <i class="fa-solid fa-calendar-days"></i>
+              <a href="/events" data-link>Events</a>
+            </div>
+            <div>
+              <i class="fa-regular fa-comments"></i>
+              <a href="/groups" data-link>Groups</a>
+            </div>
+            <div>
+              <i class="fa-regular fa-bell"></i>
+              <a href="/notifications" data-link>Notifications</a>
+            </div>
+            <div>
+              <i class="fa-solid fa-gear"></i>
+              <a href="/settings" data-link>Settings</a>
+            </div>
           </nav>
+        </div>
+        <div class="divider-horizontal"></div>
+        <div class="d-flex justify-content-center">
+          <a href="/profile" class="view-profile-btn" data-link>View Profile</a>
         </div>
       </div>
     </div>
 
     <!-- main content -->
-    <div class="col-6 vh-100 p-3 d-flex text-center app" id="app">
+    <div class="col-6 app" id="app">
 
     </div>
 
     <!-- right panel -->
-    <div class="col-3 p-4">
-       <div class="row p-4 follows">
+    <div class="col-3 right-panel">
+       <div class="row ms-3 me-3 follows">
           <div class="row">
             <h1 class="title">Who to follow</h1>
           </div>
-         <div class="row" id="follow">
+         <div id="follow">
 
          </div>
        </div>
-      <div class="row p-4 news">
+      <div class="row p-4 ms-3 me-3 news">
            <div class="row">
              <h1 class="title">Today new's</h1>
            </div>
@@ -60,10 +146,15 @@
     </div>
   </div>
 </div>
-<script src="./src/router.js" type="module"></script>
-<script src="./src/app.js" type="module"></script>
-<script type="module" src="src/right-menu.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script type="module" src="src/js/home.js"></script>
+<script src="src/js/router.js" type="module"></script>
+<script src="src/js/app.js" type="module"></script>
+<script type="module" src="src/js/right-menu.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>

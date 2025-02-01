@@ -1,0 +1,77 @@
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.news-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.news, .follows {
+    height: auto;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    padding: 24px 20px 20px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.new-follower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.new-follower img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.follower-info {
+    flex: 1;
+    align-self: flex-start;
+    text-wrap: nowrap;
+    gap: 10px;
+}
+
+.follower-info h2 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.follower-info p {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+}
+
+.add-follower-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #E9F5FF;
+}
+
+.add-follower-btn i {
+    font-size: 14px;
+    color: #007bff;
+}
+
+.add-follower-btn:hover {
+    background-color: #007bff;
+}
+
+.add-follower-btn:hover i {
+    color: #E9F5FF;
+}

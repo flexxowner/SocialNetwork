@@ -1,9 +1,11 @@
 export class RightMenu {
     constructor() {
         this.follows = [
-            {name: "Roman"},
-            {name: "John"},
-            {name: "James"},
+            {name: "Judy Nguyen", position: "News anchor"},
+            {name: "Amanda Reed", position: "Web Developer"},
+            {name: "Billy Vasquez", position: "News anchor"},
+            {name: "Lori Ferguson", position: "Web Developer at Google"},
+            {name: "Carolyn Ortiz", position: "News anchor"},
         ];
 
         this.news = [
@@ -19,6 +21,10 @@ export class RightMenu {
         $(document).ready(() => {
             this.loadFollows();
             this.loadNews();
+
+            $("#add-follower").click(function () {
+                $(this).find("i").removeClass("fa-plus").addClass("fa-user-check");
+            });
         });
     }
 
@@ -41,7 +47,7 @@ export class RightMenu {
         return `
         <div class="container-fluid">
            <div class="row pt-3">
-             <h1 class="title">${info.title}</h1>
+             <h1 class="news-text">${info.title}</h1>
            </div>
         </div>
         `;
@@ -49,19 +55,16 @@ export class RightMenu {
 
     getFollowHtml(follow) {
         return `
-        <div class="container-fluid">
-          <div class="row p-3">
-            <div class="col-3">
-              <i class="fa-regular fa-circle-user rounded-circle me-3"></i>
+          <div class="new-follower">
+            <div>
+              <img id="follow-avatar" src="/assets/avatar-plug.jpg">
             </div>
-            <div class="col-6">
-              <h1>${follow.name}</h1>
+            <div class="follower-info">
+                <h2>${follow.name}</h2>
+                <p>${follow.position}</p>
             </div>
-            <div class="col-3">
-              <button class="btn btn-sm btn-primary ms-auto">+</button>
-            </div>
+            <button id="add-follower" class="btn-primary add-follower-btn"><i id="add-icon" class="fa-solid fa-plus"></i></button>
           </div>
-        </div>
         `;
     }
 }
