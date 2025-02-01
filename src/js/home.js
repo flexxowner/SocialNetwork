@@ -40,6 +40,12 @@ export class HomePage{
 
         this.user = { name: "Roman Voskoboynikov", avatar: "assets/avatar-plug.jpg", content: "", position: "FullStack" }
 
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+        };
+
         this.init();
     }
 
@@ -191,18 +197,26 @@ export class HomePage{
 
     subscribeToSendButton() {
         $("#send-post-btn").on("click", () => {
-            this.user.content = $("#post-content").val();
-            const newPost = {
-                id: uuidv4(),
-                avatar: this.user.avatar,
-                name: this.user.name,
-                position: this.user.position,
-                content: this.user.content,
-                likesCount: 0
-            };
-            this.posts.push(newPost);
-            const postHtml = this.getFeedHtml(newPost);
-            $("#newsfeed").prepend(postHtml);
+            try {
+                this.user.content = $("#post-content").val();
+                const newPost = {
+                    id: uuidv4(),
+                    avatar: this.user.avatar,
+                    name: this.user.name,
+                    position: this.user.position,
+                    content: this.user.content,
+                    likesCount: 0,
+                    commentsCount: 0,
+                };
+                this.posts.push(newPost);
+                const postHtml = this.getFeedHtml(newPost);
+                $("#newsfeed").prepend(postHtml);
+                toastr.success('The post has been successfully published!');
+            }
+            catch(e) {
+                toastr.options.onShown = function() { console.log(e); }
+                toastr.error('Error! Post not published');
+            }
         });
     }
 }
