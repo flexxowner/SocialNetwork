@@ -1,0 +1,72 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+header {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+}
+
+.application-area {
+    background-color: #e5e5e5;
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.divider-vertical {
+    height: 40px;
+    width: 1px;
+    background-color: #ddd;
+    margin: 0;
+}
+.divider-horizontal {
+    height: 1px;
+    max-width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #ddd;
+}
+
+.text-main {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text-default {
+    font-size: 14px;
+    color: gray;
+    text-overflow: ellipsis;
+}
+
+.col-3.side-panel {
+    overflow: hidden;
+    padding-left: 25px;
+}
+.col-3.right-panel {
+    overflow: hidden;
+}

@@ -1,12 +1,6 @@
 import {Router} from "./router.js";
 import {RightMenu} from "./right-menu.js";
-
-const homePage = () => {
-    return `
-         <h2>Welcome to the Social Network</h2>
-         <p>This is the home page. Navigate using the links above</p>
-    `;
-};
+import {HomePage} from "./home.js";
 
 const feedPage = () => {
     return `
@@ -93,7 +87,7 @@ const notFoundPage = () => {
 };
 
 const routes = {
-    '/': homePage,
+    '/':() => new HomePage().renderPage(),
     '/feed': feedPage,
     '/profile': profilePage,
     '/login': loginPage,
